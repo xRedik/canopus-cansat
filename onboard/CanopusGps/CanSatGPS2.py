@@ -24,6 +24,6 @@ ser=serial.Serial(port, baudrate=9600, timeout=0.5)
 while True:
     lat,lng=CanopusGPS()
     if(boolGps):
-        gps = "Latitude = " + str(lat) + " and Longitude = " + str(lng)
+        gps = "Latitude = " + lat + " and Longitude = " + lng
         print(gps)
     
