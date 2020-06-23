@@ -7,8 +7,7 @@ Gyrosope\
 Altitude\
 Rpm Sensor with MCP3008\
 Esc and Motors\
-PID Control\
-
+PID Control
 
 Etibar Forever <3
 
