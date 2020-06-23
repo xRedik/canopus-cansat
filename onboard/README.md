@@ -1,6 +1,6 @@
 # General Mission for onboard
 
-Gps ✔️\
+Gps  ✔️\
 Camera\
 Speed\
 Gyrosope\
