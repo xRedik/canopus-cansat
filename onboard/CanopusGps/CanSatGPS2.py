@@ -1,3 +1,6 @@
+#Altitude is possible
+#Yoxlamaga axot yoxdu
+
 import serial
 import time
 import string
