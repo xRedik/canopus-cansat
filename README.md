@@ -1,3 +1,0 @@
-# Canopus Cansat
-
-Ala meow
