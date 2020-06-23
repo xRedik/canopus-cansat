@@ -1,7 +1,7 @@
 # General Mission for onboard
 
 Gps ✔️
-Camera
+Camera\
 Speed
 Gyrosope
 Altitude
