@@ -1,7 +1,7 @@
 # Onboard
 
 - [x] Gps :earth_asia:
-- [ ] Camera :camera:
+- [x] Camera :camera:
 - [ ] Speed :racehorse:
 - [ ] Gyroscope :radio_button:
 - [ ] Altitude :cloud:
