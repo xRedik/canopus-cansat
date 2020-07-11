@@ -1,3 +1,3 @@
-#Compressor
+# Compressor
 
-411 kb - 112 kb ------> 70%
+if(quality=15 in function), but good and fast ------> 411 kb - 112 kb ------> 70%
