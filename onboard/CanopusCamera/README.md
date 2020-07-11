@@ -1,3 +1,3 @@
 # Compressor
 
-if(quality=15 in function), but good and fast ------> 407 kb - 119 kb ------> 70%
+if(quality=15 in function), but good and fast ------> 407kb - 119kb ------> 70%
