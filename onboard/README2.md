@@ -14,3 +14,6 @@
 ### Mcp3008
 >sudo pip3 install adafruit-circuitpython-mcp3xxx
 
+# GPS
+>sudo pip3 install pynmea2
+
