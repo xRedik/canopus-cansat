@@ -5,8 +5,8 @@ servoPIN = 17
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(servoPIN, GPIO.OUT)
 
-hooker = GPIO.PWM(servoPIN, 50) # GPIO 17 for PWM with 50Hz
-hooker.start(2.5) # Initialization
+hooker = GPIO.PWM(servoPIN, 50)
+hooker.start(2.5)
 
 def set_angle(angle):
 	duty = angle / 18 + 2
