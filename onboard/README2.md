@@ -13,4 +13,6 @@
 >sudo pip3 install adafruit-circuitpython-mcp3xxx
 ### GPS
 >sudo pip3 install pynmea2
+### INA219
+>sudo pip install git+git://github.com/chrisb2/pi_ina219.git
 
