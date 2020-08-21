@@ -13,8 +13,8 @@ ina.configure(voltage_range=ina.RANGE_16V,
 try:
     while 1:
         v = ina.voltage()
-        i = ina.current()
-        p = ina.power()
+        #i = ina.current()
+        #p = ina.power()
         print("Voltage =",v)
 	#Battery Level with 20% rule (3.2V min)
         level = (v-9.6) / 3 * 100
