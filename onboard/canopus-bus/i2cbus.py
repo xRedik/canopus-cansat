@@ -8,7 +8,7 @@ i2c = busio.I2C(board.SCL,board.SDA)
 mpu = adafruit_mpu6050.MPU6050(i2c)
 bmp = adafruit_bmp280.Adafruit_BMP280_I2C(i2c, address = 0x76)
 
-bmp.sea_level_pressure = 1005
+bmp.sea_level_pressure = 1015
 
 while True:
 	acc_x, acc_y, acc_z = mpu.acceleration
