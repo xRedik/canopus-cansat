@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!usr/bin/env python3
 
 import pigpio
 from read_RPM import reader
@@ -7,7 +7,7 @@ from time import sleep
 
 pi = pigpio.pi()
 
-RPM_GPIO = 27
+RPM_GPIO = 18
 SAMPLE_TIME = 1
 tach = reader(pi,RPM_GPIO)
 

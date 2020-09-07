@@ -1,5 +1,5 @@
 from .rpm import CanRpm
-from .gps import canopus_gps
+#from .gps import canopus_gps
 from .batterylevel import CanBatLev
 from .altitude import read_altitude
 import time
@@ -14,12 +14,12 @@ bl = CanBatLev()
 
 def func_for_tele_dict():
   tel_dict['Team_ID'] = 6169
-  tel_dict['working_time'] = time.time() - start_time
+  tel_dict['working_time'] = '{:.2f}'.format(time.time() - start_time)
   tel_dict['number_of_pocket'] = None
   tel_dict['bat_lev'], _ = bl.battery_level_voltage()
-  tel_dict['altitude'] = read_altitude(1004)
+  tel_dict['altitude'] = read_altitude(1010)
   tel_dict['velocity'] = None
-  tel_dict['lat'], tel_dict['lng'] = canopus_gps()
+  #tel_dict['lat'], tel_dict['lng'] = canopus_gps()
   tel_dict['cap_pic'] = None #boolean
   tel_dict['rpm_1'] = rpm_1.read_rpm()
   #tel_dict['rpm_2'] = rpm_2.read_rpm()
