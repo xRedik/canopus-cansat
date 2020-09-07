@@ -1,7 +1,7 @@
 from ctl.telemetry import Telemetry
 from time import sleep
 
-tele = Telemetry(sea_lev_alt = 1010, rpm_A_pin = 17)
+tele = Telemetry(sea_lev_alt = 1010, rpm_A_pin = 17, gps_port = '/dev/ttyUSB2')
 
 
 while True:

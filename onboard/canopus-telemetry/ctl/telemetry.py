@@ -1,15 +1,17 @@
-from .rpm import CanRpm
-#from .gps import canopus_gps
-from .batterylevel import CanBatLev
-from .altitude import read_altitude
+from .sd.rpm import CanRpm
+from .sd.gps import CanGps
+from .sd.batterylevel import CanBatLev
+from .sd.altitude import read_altitude
 import time
 
 start_time = time.time()
 tel_dict = {}
 
 class Telemetry:
-  def __init__(self,Team_ID = 6165, rpm_A_pin = None, rpm_B_pin = None, rpm_C_pin = None, rpm_D_pin = None, sea_lev_alt = 1004, num_pack = 0):
+  def __init__(self,Team_ID = 6165, rpm_A_pin = None, rpm_B_pin = None, rpm_C_pin = None, rpm_D_pin = None,
+               sea_lev_alt = 1004, num_pack = 0, gps_port = '/dev/ttyUSB0'):
     self.id = Team_ID
+    self.gps = CanGps(port = gps_port)
     self.rpm_A = CanRpm(rpm_A_pin) if rpm_A_pin is not None else None
     self.rpm_B = CanRpm(rpm_B_pin) if rpm_B_pin is not None else None
     self.rpm_C = CanRpm(rpm_C_pin) if rpm_C_pin is not None else None
@@ -26,7 +28,7 @@ class Telemetry:
     tel_dict['bat_lev'], _ = self.bl.battery_level_voltage()
     tel_dict['altitude'] = read_altitude(self.sea_lev_alt)
     tel_dict['velocity'] = None
-    #tel_dict['lat'], tel_dict['lng'] = canopus_gps()
+    tel_dict['lat'], tel_dict['lng'] = self.gps.read_gps()
     tel_dict['cap_pic'] = None #boolean
     tel_dict['rpm_1'] = self.rpm_A.read_rpm() if self.rpm_A is not None else None
     tel_dict['rpm_2'] = self.rpm_B.read_rpm() if self.rpm_B is not None else None
@@ -36,4 +38,3 @@ class Telemetry:
     tel_dict['numb_of_pic'] = None
     tel_dict['send_pic'] = None
     return tel_dict
-
