@@ -1,0 +1,19 @@
+import os
+import time
+os.system("sudo pigpiod")
+time.sleep(1)
+import pigpio
+
+pi = pigpio.pi()
+
+class MotorControl:
+  def __init__(self,esc_pin_A = None, min_value = 700, max_value = 2000):
+    self.esc_pin = esc_pin
+    pi.set_servo_pulsewidth(self.esc_pin, 0)
+  def manual(self):
+
+  def calibrate(self):
+    
+  def control(self):
+  
+  def arm():
