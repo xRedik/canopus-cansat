@@ -8,7 +8,7 @@ pi = pigpio.pi()
 
 class MotorControl:
   def __init__(self,esc_pin_A = None, esc_pin_B = None, esc_pin_C = None,
-               esc_pin_D = None, min_value = 700, max_value = 2000,):
+               esc_pin_D = None, min_value = 700, max_value = 2000):
     self.active_pins = []
     self.esc_pin_A = esc_pin_A
     self.esc_pin_B = esc_pin_B
