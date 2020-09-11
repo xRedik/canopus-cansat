@@ -3,12 +3,13 @@ import time
 
 sensor_angle = CanAng()
 
-pitch, roll = sensor_angle.complementary_filter()
+time_main = time.time()
+
 while True:
-  pitch, roll = sensor_angle.complementary_filter(pitch,roll)
+  time_prev = time_main
+  time_main = time.time()
+  elapsed_time = time_main - time_prev
+  pitch, roll = sensor_angle.complementary_filter(elapsed_time)
   print("pitch is " + str(pitch))
   print("roll is " + str(roll))
-  #print(sensor_angle.acc())
-  #print()
-  #print(sensor_angle.gyro())
   time.sleep(1)
