@@ -6,7 +6,7 @@
 - [x] Altitude :cloud:
 - [x] Battery Level :warning:
 - [ ] Speed :racehorse:
-- [ ] Rpm Sensor with MCP3008 :repeat:
-- [ ] Esc and Motors :rocket:
+- [x] Rpm Sensor with MCP3008 :repeat:
+- [x] Esc and Motors :rocket:
 - [ ] PID Control :airplane:
 - [ ] Communication protocol (HTTP/Sliding window) :radio:
