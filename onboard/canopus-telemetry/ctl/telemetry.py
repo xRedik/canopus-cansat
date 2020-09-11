@@ -38,6 +38,3 @@ class Telemetry:
     tel_dict['numb_of_pic'] = None
     tel_dict['send_pic'] = None
     return tel_dict
-
-  def gyro_acc_dict(self):
-    

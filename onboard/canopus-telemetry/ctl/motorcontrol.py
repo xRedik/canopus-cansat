@@ -55,12 +55,12 @@ class MotorControl:
     inp = input()
     if inp == '':
        for pin in self.active_pins:
-         pi.set_servo_pulsewidth(pin, max_value)
+         pi.set_servo_pulsewidth(pin, self.max_value)
        print("Connect the battery NOW.. you will here two beeps, then wait for a gradual falling tone then press Enter")
        inp = input()
        if inp == '':
            for pin in self.active_pins:
-             pi.set_servo_pulsewidth(pin, min_value)
+             pi.set_servo_pulsewidth(pin, self.min_value)
            print ("Wierd eh! Special tone")
            time.sleep(7)
            print ("Wait for it ....")
@@ -71,7 +71,7 @@ class MotorControl:
            time.sleep(2)
            print ("Arming ESC now...")
            for pin in self.active_pins:
-             pi.set_servo_pulsewidth(pin, min_value)
+             pi.set_servo_pulsewidth(pin, self.min_value)
            time.sleep(1)
            print ("See.... uhhhhh")
            self.control()
@@ -102,7 +102,7 @@ class MotorControl:
           break
       elif inp == "manual":
           self.manual_drive()
-            break
+          break
       elif inp == "arm":
           self.arm()
           break
@@ -115,10 +115,10 @@ class MotorControl:
         pi.set_servo_pulsewidth(pin, 0)
       time.sleep(1)
       for pin in self.active_pins:
-        pi.set_servo_pulsewidth(pin, max_value)
+        pi.set_servo_pulsewidth(pin, self.max_value)
       time.sleep(1)
       for pin in self.active_pins:
-        pi.set_servo_pulsewidth(pin, min_value)
+        pi.set_servo_pulsewidth(pin, self.min_value)
       time.sleep(1)
       self.control()
 
