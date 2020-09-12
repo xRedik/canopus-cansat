@@ -29,6 +29,7 @@ class CanAng():
     if self.mpu is not None:
       gyro_x, gyro_y, gyro_z = self.mpu.gyro
       acc_x, acc_y, acc_z = self.mpu.acceleration
+      acc_x, acc_y, acc_z = acc_x / 9.80665, acc_y / 9.80665, acc_z / 9.80665
       acc_ang_x = math.atan(acc_y / math.sqrt(pow(acc_x, 2) + pow(acc_z,2))) * self.rad_to_deg
       acc_ang_y = math.atan(-1 * acc_x / math.sqrt(pow(acc_y,2) + pow(acc_z,2))) * self.rad_to_deg
 
