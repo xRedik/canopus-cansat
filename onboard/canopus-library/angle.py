@@ -1,7 +1,7 @@
-from ctl.sd.realang import CanAng
+from ctl.sd.realang import CanGyroAcc
 import time
 
-sensor_angle = CanAng()
+sensor_angle = CanGyroAcc()
 
 time_main = time.time()
 
@@ -13,6 +13,8 @@ while True:
   pitch, roll = sensor_angle.complementary_filter(elapsed_time)
   #print(sensor_angle.gyro())
   #print(sensor_angle.acc())
-  print("pitch is " + str(pitch))
-  print("roll is " + str(roll))
-  time.sleep(1)
+  #print("pitch is " + str(pitch))
+  #print("roll is " + str(roll))
+  velocity = sensor_angle.read_velocity(elapsed_time)
+  print(velocity)
+  time.sleep(0.1)
