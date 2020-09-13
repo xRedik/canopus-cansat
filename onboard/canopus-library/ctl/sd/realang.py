@@ -40,4 +40,5 @@ class CanGyroAcc():
   def read_velocity(self,elapsed_time):
     if self.mpu is not None:
       acc_x, acc_y, acc_z = self.mpu.acceleration
-      return self.initial_speed + elapsed_time * math.sqrt(pow(acc_x,2) + pow(acc_y,2) + pow(acc_z,2))
+      self.initial_speed = self.initial_speed + elapsed_time * math.sqrt(pow(acc_x,2) + pow(acc_y,2) + pow(acc_z,2))
+      return self.initial_speed
