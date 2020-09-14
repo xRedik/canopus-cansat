@@ -30,12 +30,25 @@ class CanPid():
       self.pid_pitch_i = self.pid_pitch_i + (self.ki_pitch * error)
     self.pid_pitch_d = self.kd_pitch * ((error - self.previous_pitch_error)/elapsed_time)
     self.PID_pitch =  self.pid_pitch_p + self.pid_pitch_i + self.pid_pitch_d
+
     if self.PID_pitch < -1000:
       self.PID_pitch = - 1000
-    elif self.PID_pitch > 1000L
+    elif self.PID_pitch > 1000:
       self.PID_pitch = 1000
+
     pwm_left = throttle + self.PID_pitch
     pwm_right = throttle - self.PID_pitch
+
+    if pwm_left<1000:
+      pwm_left = 1000
+    elif pwm_left>2000:
+      pwm_left = 2000:
+
+    if pwm_right < 1000:
+      pwm_right = 1000
+    elif pwm_right > 2000:
+      pwm_right = 2000
+
     self.previous_pitch_error = error
     return pwm_left, pwm_right
 
@@ -46,12 +59,25 @@ class CanPid():
       self.pid_roll_i = self.pid_roll_i + (self.ki_roll * error)
     self.pid_roll_d = self.kd_roll * ((error - self.previous_roll_error)/elapsed_time)
     self.PID_roll =  self.pid_roll_p + self.pid_roll_i + self.pid_roll_d
+
     if self.PID_roll < -1000:
       self.PID_roll = - 1000
     elif self.PID_roll > 1000:
       self.PID_roll = 1000
+
     pwm_front = throttle + self.PID_roll
     pwm_back = throttle - self.PID_roll
+
+    if pwm_front<1000:
+      pwm_front = 1000
+    elif pwm_front>2000:
+      pwm_front = 2000:
+
+    if pwm_back < 1000:
+      pwm_back = 1000
+    elif pwm_back > 2000:
+      pwm_back = 2000
+
     self.previous_roll_error = error
     return pwm_front, pwm_back
 
