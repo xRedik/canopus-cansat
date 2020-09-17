@@ -9,7 +9,7 @@ start_time = time.time()
 
 class Telemetry:
   def __init__(self,Team_ID = 6165, rpm_A_pin = None, rpm_B_pin = None, rpm_C_pin = None, rpm_D_pin = None,
-               sea_lev_alt = 1004, num_pack = 0, gps_port = '/dev/ttyUSB0'):
+               sea_lev_alt = 1004, num_pack = 0, gps_port = '/dev/ttyUSB0', status_hooker = False):
     self.id = Team_ID
     self.gps = CanGps(port = gps_port)
     self.rpm_A = CanRpm(rpm_A_pin) if rpm_A_pin is not None else None
@@ -20,12 +20,19 @@ class Telemetry:
     self.bl = CanBatLev()
     self.sea_lev_alt = sea_lev_alt
     self.num_pack = num_pack
-
+    self.status_hooker = status_hooker
+    self.time_model = 0
+    self.hooker_start_time = 0
+    self.start_status = True
   def full_tele_dict(self,elapsed_time = None):
     tel_dict = {}
     self.num_pack += 1
+    self.time_model = time.time() - start_time
+    if self.status_hooker and self.start_status:
+      self.hooker_start_time = time.time()
+      self.start_status = False
     tel_dict['Team_ID'] = self.id
-    tel_dict['working_time'] = '{:.2f}'.format(time.time() - start_time)
+    tel_dict['working_time'] = '{:.2f}'.format(self.time_model)
     tel_dict['number_of_pocket'] = self.num_pack
     tel_dict['bat_lev'], _ = self.bl.battery_level_voltage()
     tel_dict['altitude'] = read_altitude(self.sea_lev_alt)
@@ -36,7 +43,7 @@ class Telemetry:
     tel_dict['rpm_2'] = self.rpm_B.read_rpm() if self.rpm_B is not None else None
     tel_dict['rpm_3'] = self.rpm_C.read_rpm() if self.rpm_C is not None else None
     tel_dict['rpm_4'] = self.rpm_D.read_rpm() if self.rpm_D is not None else None
-    tel_dict['time_after_sep'] = None
+    tel_dict['time_after_sep'] = time.time() - self.hooker_start_time if self.status_hooker else 0.0
     tel_dict['numb_of_pic'] = None
     tel_dict['send_pic'] = None
     return tel_dict
