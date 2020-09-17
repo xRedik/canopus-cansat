@@ -33,6 +33,6 @@ class CanAng():
       acc_ang_x = math.atan(acc_y / math.sqrt(pow(acc_x, 2) + pow(acc_z,2))) * self.rad_to_deg
       acc_ang_y = math.atan(-1 * acc_x / math.sqrt(pow(acc_y,2) + pow(acc_z,2))) * self.rad_to_deg
 
-      self.roll = 0.98 * (self.roll + gyro_x * elapsedTime) + 0.02 * acc_ang_x
-      self.pitch = 0.98 * (self.pitch + gyro_y * elapsedTime) + 0.02 * acc_ang_y
+      self.roll = 0.98 * (gyro_x * elapsedTime) + 0.02 * acc_ang_x
+      self.pitch = 0.98 * (gyro_y * elapsedTime) + 0.02 * acc_ang_y
       return self.pitch, self.roll
