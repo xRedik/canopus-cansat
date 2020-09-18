@@ -43,7 +43,7 @@ class Telemetry:
     tel_dict['rpm_2'] = self.rpm_B.read_rpm() if self.rpm_B is not None else None
     tel_dict['rpm_3'] = self.rpm_C.read_rpm() if self.rpm_C is not None else None
     tel_dict['rpm_4'] = self.rpm_D.read_rpm() if self.rpm_D is not None else None
-    tel_dict['time_after_sep'] = time.time() - self.hooker_start_time if self.status_hooker else 0.0
+    tel_dict['time_after_sep'] = '{:.2f}'.format(time.time() - self.hooker_start_time) if self.status_hooker else 0.0
     tel_dict['numb_of_pic'] = None
     tel_dict['send_pic'] = None
     return tel_dict

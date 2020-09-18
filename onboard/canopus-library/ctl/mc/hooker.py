@@ -15,15 +15,15 @@ class Hooker:
       duty = angle / 18 + 2
       self.hooker.ChangeDutyCycle(duty)
       time.sleep(0.2)
-  def open_hooker(self):
+  def open_servo(self):
     self.set_angle(27)
     self.status = True
     return self.status
-  def close_hooker(self):
+  def close_servo(self):
     self.set_angle(150)
     self.status = False
     return self.status
-  def pass_hooker(self):
+  def pass_servo(self):
     self.set_angle(130)
     self.status = False
     return self.status
