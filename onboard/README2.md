@@ -16,3 +16,9 @@
 ### INA219
 >sudo pip install git+git://github.com/chrisb2/pi_ina219.git
 
+### Pigpio
+wget https://github.com/joan2937/pigpio/archive/master.zip
+unzip master.zip
+cd pigpio-master
+make
+sudo make install
