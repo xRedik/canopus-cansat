@@ -2,7 +2,7 @@ from picamera import PiCamera
 from time import sleep
 from PIL import Image
 
-class CanCamera:
+class Canopus_Camera:
   def __init__(self, resolution = (480,480), framerate = 15):
     try:
       self.camera = PiCamera()
