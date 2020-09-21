@@ -37,7 +37,7 @@ class CanGyroAcc():
       self.roll = 0.98 * (self.roll + gyro_x * elapsed_time) + 0.02 * acc_ang_x
       self.pitch = 0.98 * (self.pitch + gyro_y * elapsed_time) + 0.02 * acc_ang_y
 
-      return self.pitch, self.roll
+      return '{:.3f}'.format(self.pitch), '{:.3f}'.format(self.roll)
   def read_velocity(self,elapsed_time):
     if self.mpu is not None:
       acc_x, acc_y, acc_z = self.mpu.acceleration

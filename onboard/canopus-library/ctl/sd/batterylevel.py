@@ -6,7 +6,6 @@ class CanBatLev():
     self.address = address
     try:
       self.ina = INA219(shunt_ohms=0.1, #maybe ina
-                        max_expected_amps = 0.6,
                         address=self.address)
       self.ina.configure(voltage_range=self.ina.RANGE_16V,
                          gain=self.ina.GAIN_AUTO,

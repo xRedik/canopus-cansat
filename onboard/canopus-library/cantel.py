@@ -4,7 +4,8 @@ from ctl.mc.hooker import Hooker
 
 
 hooker = Hooker(servo_pin = 17)
-tele = Telemetry(sea_lev_alt = 1010, rpm_A_pin = 27, gps_port = '/dev/ttyUSB2',
+
+tele = Telemetry(sea_lev_alt = 1020, rpm_A_pin = 27, gps_port = '/dev/ttyUSB2',
                  status_hooker = hooker.status)
 
 

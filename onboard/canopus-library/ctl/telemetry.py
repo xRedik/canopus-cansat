@@ -34,7 +34,7 @@ class Telemetry:
     tel_dict['Team_ID'] = self.id
     tel_dict['working_time'] = '{:.2f}'.format(self.time_model)
     tel_dict['number_of_pocket'] = self.num_pack
-    tel_dict['bat_lev'], _ = self.bl.battery_level_voltage()
+    tel_dict['bat_lev'], tel_dict['voltage'] = self.bl.battery_level_voltage()
     tel_dict['altitude'] = read_altitude(self.sea_lev_alt)
     tel_dict['velocity'] = self.velo.read_velocity(elapsed_time) if elapsed_time is not None else None
     tel_dict['lat'], tel_dict['lng'] = self.gps.read_gps()
