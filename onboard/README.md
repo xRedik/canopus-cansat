@@ -5,7 +5,7 @@
 - [x] Gyroscope :radio_button:
 - [x] Altitude :cloud:
 - [x] Battery Level :warning:
-- [ ] Speed :racehorse:
+- [x] Speed :racehorse:
 - [x] Rpm Sensor with MCP3008 :repeat:
 - [x] Esc and Motors :rocket:
 - [ ] PID Control :airplane:
