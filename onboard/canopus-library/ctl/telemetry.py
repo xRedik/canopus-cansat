@@ -1,8 +1,8 @@
 from .sd.rpm import CanRpm
 from .sd.gps import CanGps
 from .sd.batterylevel import CanBatLev
-from .sd.altitude import read_altitude
 from .sd.realang import CanGyroAcc
+from .sd.altitude import Altitude
 import time
 
 start_time = time.time()
@@ -13,6 +13,7 @@ class Telemetry:
                camera_object = None):
     self.id = Team_ID
     self.gps = CanGps(port = gps_port)
+    self.altitude = Altitude(slp = sea_lev_alt)
     self.rpm_A = CanRpm(rpm_A_pin) if rpm_A_pin is not None else None
     self.rpm_B = CanRpm(rpm_B_pin) if rpm_B_pin is not None else None
     self.rpm_C = CanRpm(rpm_C_pin) if rpm_C_pin is not None else None
@@ -21,7 +22,6 @@ class Telemetry:
     self.bl = CanBatLev()
     self.sea_lev_alt = sea_lev_alt
     self.num_pack = num_pack
-    self.status_hooker = status_hooker
     self.time_model = 0
     self.hooker_start_time = 0
     self.start_status = True
@@ -38,8 +38,8 @@ class Telemetry:
     tel_dict['working_time'] = '{:.2f}'.format(self.time_model)
     tel_dict['number_of_pocket'] = self.num_pack
     tel_dict['bat_lev'], tel_dict['voltage'] = self.bl.battery_level_voltage()
-    tel_dict['altitude'] = read_altitude(self.sea_lev_alt)
-    tel_dict['velocity'] = self.velo.read_velocity(elapsed_time) if elapsed_time is not None else None
+    tel_dict['altitude'] = self.altitude.read_altitude()
+    tel_dict['velocity'] = self.altitude.read_velocity(elapsed_time = elapsed_time) if elapsed_time is not None else None
     tel_dict['lat'], tel_dict['lng'] = self.gps.read_gps()
     tel_dict['cap_pic'] = self.camera_object.status
     tel_dict['rpm_1'] = self.rpm_A.read_rpm() if self.rpm_A is not None else None

@@ -8,13 +8,12 @@ class Canopus_Camera:
       self.camera = PiCamera()
       self.camera.resolution = resolution
       #self.camera.framerate = framerate
-      self.status = False
-      self.counter = 0
-      self.send_pic_counter = 0
       self.camera_work = True
     except:
       self.camera_work = False
-
+    self.status = False
+    self.counter = 0
+    self.send_pic_counter = 0
   def take_pic(self, filename = None):
     if self.camera_work:
       self.status = True
