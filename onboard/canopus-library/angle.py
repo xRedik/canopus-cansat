@@ -16,4 +16,3 @@ while True:
   print("pitch is " + str(pitch))
   print("roll is " + str(roll))
   velocity = sensor_angle.read_velocity(elapsed_time)
-  #time.sleep(0.0001)
