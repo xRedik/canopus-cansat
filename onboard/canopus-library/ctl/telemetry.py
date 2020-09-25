@@ -27,6 +27,8 @@ class Telemetry:
     self.start_status = True
     self.camera_object = camera_object
     self.hooker_object = hooker_object
+    self.csv_columns = ['Team_ID','working_time','number_of_pocker','bat_lev','altitude','velocity','lat',
+                        'lng','cap_pic', 'rpm_1','rpm_2','rpm_3','rpm_4','time_after_sep','numb_of_pocket','send_pic']
   def full_tele_dict(self,elapsed_time = None):
     tel_dict = {}
     self.num_pack += 1
