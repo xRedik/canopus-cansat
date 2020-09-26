@@ -12,6 +12,7 @@ class Altitude:
       self.sensor = None
     self.previous_altitude = 0
     self.current_altitude = 0
+    self.velocity = 0
   def read_altitude(self):
     if self.sensor is not None:
       self.previous_altitude = self.current_altitude
@@ -20,5 +21,6 @@ class Altitude:
     return None
   def read_velocity(self, elapsed_time = 1):
     _ = self.read_altitude()
-    return '{:.3f}'.format(abs((self.current_altitude - self.previous_altitude) / elapsed_time)) if self.sensor is not None else None
+    self.velocity = '{:.3f}'.format(abs((self.current_altitude - self.previous_altitude) / elapsed_time)) if self.sensor is not None else None
+    return self.velocity
 
