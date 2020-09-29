@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cansat Mission Control</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+  <div class="root">
+    {% include 'header.html' %}
+    {% include 'plots.html' %}
+    {% include 'telemetry.html' %}
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<div class="plots">
+  <img src="data:image/png;base64,{{plots.speed}}">
+  </img>
+  <div id='map'></div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxhbWVvdyIsImEiOiJja2M5bWVkcmoxNmxuMzJueHg0bWhoYTRkIn0.iuIiWTb18I7a5fYS_QFAvw';
+
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/satellite-v9', // stylesheet location
+      center: [49.8671, 40.4093], // starting position [lng, lat]
+      zoom: 16 // starting zoom
+   });
+
+    function createMarker(lng, lat) {
+      var marker = new mapboxgl.Marker()
+        .setLngLat([12.550343, 55.665957])
+        .addTo(map);
+
+      var el = document.createElement('div');
+      el.className = 'marker';
+      <!-- el.style.backgroundImage = 'url(https://placekitten.com/g/32/32)'; -->
+      el.style.width = '10px';
+      el.style.height = '10px';
+
+      // add marker to map
+      new mapboxgl.Marker(el)
+        .setLngLat([lng, lat])
+        .addTo(map);
+    }
+
+    createMarker(49.8671, 40.4593)
+    createMarker(49.8672, 40.4023)
+    createMarker(49.8636, 40.4393)
+    createMarker(49.8471, 40.2093)
+    createMarker(49.8671, 40.4093)
+    createMarker(49.4671, 40.3393)
+    createMarker(49.1671, 40.4293)
+  </script>
+</div>

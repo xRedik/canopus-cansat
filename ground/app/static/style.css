@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-size: 14px;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+
+  width: 100vw;
+  height: 100vh;
+  color: #DADADA;
+  font-family: Segoe UI;
+  background: #16171B;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.8;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px 5px 5px;
+  text-align: center;
+  background: #202125;
+  width: 100%;
+  height: 40px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.header .left,.right {
+  display: flex;
+  flex-grow: 0;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header li {
+  display: inline-block;
+  margin-left: 25px;
+}
+
+img {
+  pointer-events: none;
+}
+
+.plots {
+  user-select: none;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#map {
+  flex-grow: 1;
+  height: 390px;
+}
+
+.marker {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: red;
+  padding: 0;
+}
+
+.telemetry table {
+  flex-grow: 0;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.telemetry tr:nth-child(even) {
+  background: #202125;
+}
