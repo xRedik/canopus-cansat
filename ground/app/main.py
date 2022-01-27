@@ -117,7 +117,7 @@ def index():
         'speed': plot()
     }
 
-    return render_template('index.html', plots=plots, data=xbee_data)
+    return render_template('index.html', plots=plots, data=xbee_data[::-1])
 
 
 def close_serial():
