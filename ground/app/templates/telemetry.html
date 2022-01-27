@@ -8,87 +8,35 @@
       <th>Altitude</th>
       <th>Velocity</th>
       <th>Latitude</th>
-      <th>Longtitude</th>
+      <th>Longitude</th>
       <th>TookPhoto</th>
       <th>RpmA</th>
       <th>RpmB</th>
       <th>RpmC</th>
       <th>RpmD</th>
-      <th>Stage</th>
+      <th>Time After Separation</th>
       <th>TookPhotos</th>
       <th>SentPhotos</th>
     </thead>
-    <tr>
-      <td>6165</td>
-      <td>4</td>
-      <td>4</td>
-      <td>101.33</td>
-      <td>30.3</td>
-      <td>7.31</td>
-      <td>40.4093</td>
-      <td>49.8671</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>6165</td>
-      <td>3</td>
-      <td>3</td>
-      <td>103.54</td>
-      <td>23.43</td>
-      <td>5.36</td>
-      <td>40.4093</td>
-      <td>49.8671</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>6165</td>
-      <td>2</td>
-      <td>2</td>
-      <td>107.54</td>
-      <td>15.5</td>
-      <td>5.1</td>
-      <td>40.4093</td>
-      <td>49.8671</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>6165</td>
-      <td>1</td>
-      <td>1</td>
-      <td>106.61</td>
-      <td>9.15</td>
-      <td>4.31</td>
-      <td>40.4093</td>
-      <td>49.8671</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
+      {% for row in data %}
+        <tr>
+          <td>{{ row.team_id }}</td>
+          <td>{{ row.time }}</td>
+          <td>{{ row.packet }}</td>
+          <td>{{ row.voltage }}</td>
+          <td>{{ row.altitude }}</td>
+          <td>{{ row.velocity }}</td>
+          <td>{{ row.lat }}</td>
+          <td>{{ row.lon }}</td>
+          <td>{{ row.took_photo }}</td>
+          <td>{{ row.rpm_a }}</td>
+          <td>{{ row.rpm_b }}</td>
+          <td>{{ row.rpm_c }}</td>
+          <td>{{ row.rpm_d }}</td>
+          <td>{{ row.stage }}</td
+          <td>{{ row.took_photos }}</td>
+          <td>{{ row.send_photos }}</td >
+        </tr>
+      {% endfor %}
   </table>
 </div>
