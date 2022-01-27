@@ -39,6 +39,12 @@ Telemetry = namedtuple('Telemetry', ['team_id', 'time', 'packet',
 
 xbee_data = []
 
+import csv
+
+csv_fp = None
+csv_writer = None
+
+import time
 
 @app.before_first_request
 def setup_xbee():
@@ -56,10 +62,20 @@ def setup_xbee():
 
     device.add_data_received_callback(xbee_callback)
 
+    global csv_fp
+    global csv_writer
+
+    csv_fp = open('6165_TLM_2020_' + str(time.time()) + '.csv', 'w')
+    csv_writer = csv.writer(csv_fp)
+
 
 def xbee_callback(xbee_message):
     data = xbee_message.data.decode()
+
     print(eval(data))
+    csv_writer.writerow(eval(data))
+    csv_fp.flush()
+
     tele = Telemetry(*eval(data))
     xbee_data.append(tele)
 
@@ -121,6 +137,9 @@ def index():
 
 
 def close_serial():
+    if csv_fp:
+        csv_fp.close()
+
     if device:
         device.close()
 
